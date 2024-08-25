@@ -25,6 +25,10 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import deloitte from "./company/deloitte.png";
+import assigncorp from "./company/assigncorp.jpg";
+import rbc from "./company/rbc.png";
+import intuitive from './company/intuitive.jpg'
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -59,4 +63,8 @@ export {
   carrent,
   jobit,
   tripguide,
+  deloitte,
+  assigncorp,
+  rbc,
+  intuitive
 };
