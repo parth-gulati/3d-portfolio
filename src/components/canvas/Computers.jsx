@@ -4,7 +4,7 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 import * as THREE from "three";
 
-const Computers = () => {
+const Computers = ({isMobile}) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
 
   return (
@@ -21,8 +21,8 @@ const Computers = () => {
       <pointLight position={[0, 0, 0]} intensity={1} />
       <primitive
         object={computer.scene}
-        scale={0.75}
-        position={[0, -3.25, -1.5]}
+        scale={isMobile ? 0.5 :0.75}
+        position={isMobile? [0, -3, -1.5] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -30,15 +30,31 @@ const Computers = () => {
 };
 
 const ComputersCanvas = () => {
+
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(()=>{
+    const mediaQuery = window.matchMedia(
+      '(max-width: 500px)');
+    setIsMobile(mediaQuery.matches)
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    }
+
+    mediaQuery.addEventListener('change', handleMediaQueryChange)
+
+    return ()=> {
+      mediaQuery.removeEventListener('change', handleMediaQueryChange)
+    }
+  }, [])
   return (
-    <div className="w-full h-full absolute inset-0 top-[120px]">
+    <div className="w-full h-full">
       {/* Ensures full width and height for the canvas */}
       <Canvas
         frameloop="demand"
         shadows
         camera={{ position: [20, 3, 5], fov: 25 }}
         gl={{ preserveDrawingBuffer: true }}
-        className="w-full h-full"
       >
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls
@@ -51,7 +67,7 @@ const ComputersCanvas = () => {
               MIDDLE: THREE.MOUSE.NONE,
             }}
           />
-          <Computers />
+          <Computers isMobile={isMobile} />
         </Suspense>
       </Canvas>
     </div>
