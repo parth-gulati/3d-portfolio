@@ -13,12 +13,7 @@ import {
   nodejs,
   mongodb,
   git,
-  figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
+  pytorch,
   carrent,
   deloitte,
   jobit,
@@ -27,6 +22,8 @@ import {
   threejs,
   assigncorp,
   intuitive,
+  mui,
+  python,
 } from "../assets";
 
 export const navLinks = [
@@ -81,6 +78,10 @@ const technologies = [
     icon: typescript,
   },
   {
+    name: "Python",
+    icon: python,
+  },
+  {
     name: "React JS",
     icon: reactjs,
   },
@@ -101,20 +102,12 @@ const technologies = [
     icon: mongodb,
   },
   {
-    name: "Three JS",
-    icon: threejs,
+    name: "pytorch",
+    icon: pytorch,
   },
   {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
+    name: "mui",
+    icon: mui,
   },
 ];
 

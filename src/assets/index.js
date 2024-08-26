@@ -33,9 +33,15 @@ import intuitive from './company/intuitive.jpg'
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import pytorch from './tech/pytorch.png'
+import mui from './tech/mui.png'
+import python from './tech/python.png'
 
 export {
+  python,
   logo,
+  mui,
+  pytorch,
   backend,
   creator,
   mobile,
